@@ -5,17 +5,25 @@ function fizzbuzz() {
     console.log('Buzz-multiplesof five');
     console.log('Bang-multiples of seven');
     console.log('Bong-multiple of 11');
+    console.log('Fezz-multiple of thirteen');
 
     for (let i = 1; i <= 100; i++) {
 
         let displayName = "";
 
-        if (MultipleOf11(i)) {
+
+        if (MultipleOf11(i) && MultipleOf13(i)) {
+            console.log('FezzBong');
+            i++;
+        } else if (MultipleOf11(i)) {
             console.log('Bong');
             i++;
         }
         if (MultipleOf3(i)) {
             displayName += 'Fizz';
+        }
+        if (MultipleOf13(i)) {
+            displayName += 'Fezz';
         }
         if (MultipleOf5(i)) {
             displayName += 'Buzz';
@@ -47,4 +55,7 @@ function MultipleOf11(number) {
     return number % 11 === 0;
 }
 
+function MultipleOf13(number) {
+    return number % 13 === 0;
+}
 fizzbuzz();
