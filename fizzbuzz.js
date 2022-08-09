@@ -3,12 +3,17 @@ function fizzbuzz() {
     console.log('==================');
     console.log('Fizz- multiples of three');
     console.log('Buzz-multiplesof five');
-    console.log('Bang-multiples of seven')
+    console.log('Bang-multiples of seven');
+    console.log('Bong-multiple of 11');
 
     for (let i = 1; i <= 100; i++) {
 
         let displayName = "";
 
+        if (MultipleOf11(i)) {
+            console.log('Bong');
+            i++;
+        }
         if (MultipleOf3(i)) {
             displayName += 'Fizz';
         }
@@ -18,31 +23,28 @@ function fizzbuzz() {
         if (Multipleof7(i)) {
             displayName += 'Bang';
         }
-        if (!MultipleOf3(i) && !MultipleOf5(i) && !Multipleof7(i)) {
+        if (displayName === '') {
             displayName += i.toString();
         }
 
-        console.log(displayName)
+        console.log(displayName);
     }
 }
 
 function MultipleOf3(number) {
-    if (number % 3 === 0) {
-        return true;
-    }
+    return number % 3 === 0;
 }
 
 function MultipleOf5(number) {
-    if (number % 5 === 0) {
-        return true;
-    }
+    return number % 5 === 0;
 }
 
 function Multipleof7(number) {
-    if (number % 7 === 0) {
-        return true;
-    }
+    return number % 7 === 0;
 }
 
+function MultipleOf11(number) {
+    return number % 11 === 0;
+}
 
 fizzbuzz();
