@@ -1,41 +1,53 @@
+const readline = require('readline-sync');
 function fizzbuzz() {
     console.log('FizzBuzz!!!!!!!!!!');
     console.log('==================');
-    console.log('Fizz- multiples of three');
-    console.log('Buzz-multiplesof five');
-    console.log('Bang-multiples of seven');
+    console.log('\nBang-multiples of 7');
     console.log('Bong-multiple of 11');
-    console.log('Fezz-multiple of thirteen');
+    console.log('__________________________');
 
-    for (let i = 1; i <= 100; i++) {
+    console.log('\nHow many numbers do you want to go upto?');
+    let numbersToPrint = + readline.prompt();
+    console.log('\nOut of the below options, select one each for the following numbers:');
+    console.log(' *Fizz\n *Buzz \n *Frezz');
+    console.log('What do you want to print for number 3?');
+    let wordFor3 = readline.prompt();
+    console.log('What do you want to print for number 5?');
+    let wordFor5 = readline.prompt();
+    console.log('What do you want to print for number 13?');
+    let wordFor13 = readline.prompt();
 
-        let displayName = "";
+    for (let i = 1; i <= numbersToPrint; i++) {
 
+        let displayName = [];
 
         if (MultipleOf11(i) && MultipleOf13(i)) {
-            console.log('FezzBong');
+            console.log(wordFor13 + 'Bong');
             i++;
         } else if (MultipleOf11(i)) {
             console.log('Bong');
             i++;
         }
         if (MultipleOf3(i)) {
-            displayName += 'Fizz';
+            displayName.push(wordFor3);
         }
         if (MultipleOf13(i)) {
-            displayName += 'Fezz';
+            displayName.push(wordFor13);
         }
         if (MultipleOf5(i)) {
-            displayName += 'Buzz';
+            displayName.push(wordFor5);
         }
         if (Multipleof7(i)) {
-            displayName += 'Bang';
+            displayName.push('Bang');
         }
-        if (displayName === '') {
-            displayName += i.toString();
+        if (displayName.length === 0) {
+            displayName.push(i);
+        }
+        if (MultipleOf17(i)) {
+            displayName.reverse();
         }
 
-        console.log(displayName);
+        console.log(displayName.join(''));
     }
 }
 
@@ -58,4 +70,9 @@ function MultipleOf11(number) {
 function MultipleOf13(number) {
     return number % 13 === 0;
 }
+
+function MultipleOf17(number) {
+    return number % 17 === 0;
+}
+
 fizzbuzz();
